@@ -1,0 +1,66 @@
+﻿
+@model PagedList.IPagedList<VoHuanDat_QLS.Models.SACH>
+
+
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="bg-white rounded-3xl p-8 mb-5">
+
+    <div class="tab-content">
+        <div id="all-genre" data-tab-content class="active">
+            <div class="row">
+
+
+
+
+                @foreach (var sach in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="product-item">
+                            <figure class="product-style">
+                                <a href="@Url.Action("Details", "Sach", new { id = sach.Masach })">
+                                    <img class=" product-item" src="~/Content/images/AnhBia/@sach.Anhbia" alt="Ảnh bìa" />
+                                </a>
+                                <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                    Add to Cart
+                                </button>
+                            </figure>
+                            <figcaption>
+                                <h3>@sach.Tensach</h3>
+                                <span>@sach.CHUDE.TenChuDe</span>
+                                <div class="item-price">$ @sach.Giaban</div>
+                            </figcaption>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div>
+            Trang  @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;
+        </div>
+
+        <div class="Menu-trang">
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+        </div>
+    </div>
+
+
+    <style>
+        .Menu-trang li {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+            .Menu-trang li:hover {
+                background-color: #eee;
+            }
+    </style>

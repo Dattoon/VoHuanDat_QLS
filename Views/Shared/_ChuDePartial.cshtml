@@ -1,0 +1,13 @@
+﻿
+
+
+@if (ViewBag.ChuDes!=null)
+{
+
+   foreach (var chude in ViewBag.ChuDes)
+    {
+        <li>
+            <a href="@Url.Action("TheoChuDe", "Sach", new { id = chude.MaCD })">@chude.TenChuDe</a>
+        </li>
+    }
+}

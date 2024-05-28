@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Xoasach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+@model VoHuanDat_QLS.Models.SACH
+<h3>Bạn có chắc là muốn xóa này chứ?</h3>
+<div>
+
+    <div class="bg-green-100 rounded-3xl p-8 mb-5">
+     
+
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    Tên sách:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tensach)
+                </dd>
+
+                <dt>
+                    Giá bán:
+                </dt>
+
+                <dd>
+                    @String.Format("{0:0,0}", Model.Giaban) VNĐ
+                </dd>
+
+                <dt>
+                    Mô tả:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Mota)
+                </dd>
+
+                <dt>
+                    Ảnh bìa:
+                </dt>
+
+                <dd>
+                    <img style="width:150px" src="@Url.Content("~/Content/images/AnhBia/" + Model.Anhbia)" />
+                </dd>
+
+                <dt>
+                    Ngày cập nhật
+                </dt>
+
+                <dd>
+                    @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat)
+                </dd>
+
+                <dt>
+                    Số lượng tồn:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Soluongton)
+                </dd>
+
+                <dt>
+                    Chủ đề:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CHUDE.TenChuDe)
+                </dd>
+
+                <dt>
+                    Nhà xuất bản:
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NHAXUATBAN.TenNXB)
+                </dd>
+
+            </dl>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở về", "Sach")
+            </div>
+        }
+    </div>

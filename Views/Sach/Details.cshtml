@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model VoHuanDat_QLS.Models.SACH
+
+
+<section id="best-selling" class="leaf-pattern-overlay">
+    <div class="corner-pattern-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <figure class="products-thumb">
+                            <img  src="~/Content/images/AnhBia/@Model.Anhbia" alt="Ảnh bìa" class="single-image">
+                        </figure>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="product-entry">
+                            <h2 class="section-title divider">@Model.Tensach</h2>
+
+                            <div class="products-content">
+                                <div class="author-name">By @(ViewBag.TacGia != null ? ViewBag.TacGia.TenTG : "Không rõ")</div>
+
+
+                                <h3 class="item-title"</h3>
+                                <p>@Model.Mota</p>
+                                <div class="item-price">$ @Model.Giaban</div>
+                                <div class="btn-wrap">
+                                    <a href="@Url.Action("ThemGiohang","GioHang", new { @iMasach = @Model.Masach, @strURL = Request.Url.ToString() })">
+                                        Mua Ngay
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- / row -->
+
+            </div>
+
+        </div>
+    </div>
+</section>
+    

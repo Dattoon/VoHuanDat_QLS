@@ -1,0 +1,36 @@
+﻿
+@model List<VoHuanDat_QLS.Models.SACH>
+
+
+
+
+<div class="tab-content">
+    <div id="all-genre" data-tab-content class="active">
+        <div class="row">
+
+
+
+
+            @foreach (var sach in Model)
+            {
+                <div class="col-md-3">
+                    <div class="product-item">
+                        <figure class="product-style">
+                            <a href="@Url.Action("Details", "Sach", new { id = sach.Masach })">
+                                <img class=" product-item" src="~/Content/images/AnhBia/@sach.Anhbia" alt="Ảnh bìa" />
+                            </a>
+                            <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                                Add to Cart
+                            </button>
+                        </figure>
+                        <figcaption>
+                            <h3>@sach.Tensach</h3>
+                            <span>@sach.CHUDE.TenChuDe</span>
+                            <div class="item-price">$ @sach.Giaban</div>
+                        </figcaption>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+

@@ -1,0 +1,20 @@
+﻿
+
+
+
+
+
+
+
+
+@if (ViewBag.nhaxuatbans != null)
+{
+
+    foreach (var nxb in ViewBag.nhaxuatbans)
+    {
+        <li>
+            <a href="@Url.Action("theonhaxuatban", "sach", new { id = nxb.MaNXB })">@nxb.TenNXB</a>
+        </li>
+    }
+
+}

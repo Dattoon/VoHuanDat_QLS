@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model List<VoHuanDat_QLS.Models.SACH>
+
+
+
+@if (Model != null)
+{
+    @Html.Partial("_SachPartial", Model)
+}
